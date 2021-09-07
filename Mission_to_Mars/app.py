@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect
 import pymongo
 import scrape_mars
+import pandas as pd
 
 # Create an instance of Flask
 app = Flask(__name__)
@@ -19,6 +20,7 @@ def home():
     db.mars.drop()
     db.mars.insert_many([scrape_mars.scrape()])
     mars_data = db.mars.find_one()
+    
     # Return template and data
     return render_template("/index.html", mars_data=mars_data)
 
