@@ -65,5 +65,3 @@ def scrape():
     browser.quit()
 
     return mars_dict
-
-print(scrape())
