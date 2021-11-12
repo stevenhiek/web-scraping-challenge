@@ -15,71 +15,36 @@
       <h1>Mission to Mars</h1>
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
     </div>
-    
-    <h2><strong>Latest Mars News</strong></h2>
-    <h4><strong>{{mars_data.news_title}}</strong></h4>
-    <p>{{mars_data.news_p}}</p>
-    <h2><strong>Featured Mars Image</strong></h2>
-    <img src="{{ mars_data.feature_image_url }}" alt="featured_image">
-    <h2><strong>Mars Facts</strong></h2>
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Mars - Earth Comparison</th>
-          <th scope="col">Mars</th>
-          <th scope="col">Earth</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">{{mars_data.mars_df['Mars - Earth Comparison'][0]}}</th>
-          <td>{{mars_data.mars_df['Mars'][0]}}</td>
-          <td>{{mars_data.mars_df['Earth'][0]}}</td>
-        </tr>
-        <tr>
-          <th scope="row">{{mars_data.mars_df['Mars - Earth Comparison'][1]}}</th>
-          <td>{{mars_data.mars_df['Mars'][1]}}</td>
-          <td>{{mars_data.mars_df['Earth'][1]}}</td>
-        </tr>
-        <tr>
-          <th scope="row">{{mars_data.mars_df['Mars - Earth Comparison'][2]}}</th>
-          <td>{{mars_data.mars_df['Mars'][2]}}</td>
-          <td>{{mars_data.mars_df['Earth'][2]}}</td>
-        </tr>
-        <tr>
-          <th scope="row">{{mars_data.mars_df['Mars - Earth Comparison'][3]}}</th>
-          <td>{{mars_data.mars_df['Mars'][3]}}</td>
-          <td>{{mars_data.mars_df['Earth'][3]}}</td>
-        </tr>
-        <tr>
-          <th scope="row">{{mars_data.mars_df['Mars - Earth Comparison'][4]}}</th>
-          <td>{{mars_data.mars_df['Mars'][4]}}</td>
-          <td>{{mars_data.mars_df['Earth'][4]}}</td>
-        </tr>
-        <tr>
-          <th scope="row">{{mars_data.mars_df['Mars - Earth Comparison'][5]}}</th>
-          <td>{{mars_data.mars_df['Mars'][5]}}</td>
-          <td>{{mars_data.mars_df['Earth'][5]}}</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="row">
+      <div class="col-sm-9">
+        <h2><strong>Latest Mars News</strong></h2>
+        <h4><strong>{{mars_data.news_title}}</strong></h4>
+        <p>{{mars_data.news_p}}</p>
+        <h2><strong>Featured Mars Image</strong></h2>
+        <img src="{{ mars_data.feature_image_url }}" alt="featured_image">
+      </div>
+      <div class="col-sm-3">
+        <h2><strong>Mars Facts</strong></h2>
+        {{mars_data.mars_df | safe}}
+      </div>
+    </div>
     <h2><strong>Mars Hemispheres</strong></h2>
-    
+
     <div class="row">
       <div class="container">
-      {% for hemi in mars_data.mar_hemispheres %}
-      <div class="col-sm-3">
-      <div class="card">
-        <div class="card-body">
-          <img src="{{hemi.image_url}}" class="img-thumbnail" >
-          <h5 class="card-title"><strong>{{hemi.title}}</strong></h5>
-        </div>  
+        {% for hemi in mars_data.mar_hemispheres %}
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+              <img src="{{hemi.image_url}}" class="img-thumbnail">
+              <h5 class="card-title"><strong>{{hemi.title}}</strong></h5>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
       </div>
-      </div>
-      {% endfor %}
     </div>
-    </div>
-    
+
 
   </div>
   </div>

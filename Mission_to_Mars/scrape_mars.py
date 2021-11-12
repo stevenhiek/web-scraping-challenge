@@ -35,7 +35,8 @@ def scrape():
     mars_df = mars_df[0]
     mars_df.columns = mars_df.iloc[0]
     mars_df = mars_df.iloc[1:]
-    mars_df_to_list = mars_df.to_dict(orient="list")
+    # mars_df_to_list = mars_df.to_dict(orient="list")
+    mars_html = mars_df.to_html()
 
     ### Generate Mars Hemispheres ###
     mars_hemispheres_url = 'https://marshemispheres.com/'
@@ -58,7 +59,7 @@ def scrape():
     mars_dict['news_title'] = news_title
     mars_dict['news_p'] = news_p
     mars_dict['feature_image_url'] = featured_image_url
-    mars_dict['mars_df'] = mars_df_to_list
+    mars_dict['mars_df'] = mars_html
     mars_dict['mar_hemispheres'] = hemispheres_list
 
     # Quit the browser

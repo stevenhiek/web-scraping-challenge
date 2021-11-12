@@ -18,3 +18,5 @@ The Mars web application visualizations can be found in the *Visualization Folde
 ## How to Use 
 1. Download files from repository 
 2. Open the *app.py* in Visual Studio or run through command prompt
+
+![](Visualizations/Mission_to_Mars.png)
