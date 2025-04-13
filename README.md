@@ -1,4 +1,4 @@
-# web-scraping-challenge
+# Web-Scraping-Challenge
 The Web-Scrapping-Challenge is a project to build a web application for data related to the Mission to Mars and display the information in a single HTML page. 
 ## Mars Data Scraped
 * Latest Mars News
